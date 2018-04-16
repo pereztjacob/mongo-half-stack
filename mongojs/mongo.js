@@ -4,7 +4,7 @@ const url = 'mongodb://localhost:27017/testDB';
 let db = null;
 MongoClient.connect(url)
     .then(_client => {
-        client = _client;
+        const client = _client;
         const db = client.db();
         return db.collection('unicorns')
             .find({ name: 'whatever' })

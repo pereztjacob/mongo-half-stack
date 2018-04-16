@@ -10,7 +10,7 @@ const { assert } = chai;
 describe('Florists API', () => {
 
     before(() => {
-        return mongo.then(db => db.collection('florists').remove);
+        return mongo.then(db => db.collection('florists').drop());
     });
 
     let florist = {
