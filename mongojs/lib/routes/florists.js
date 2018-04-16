@@ -16,7 +16,7 @@ const getOne = (id, req, res) => {
 const getAll = (req, res) => {
     florist.find().then(florists => {
         res.send(florists);
-    });
+    }).catch(err => console.log('HERE', err)); //eslint-disable-line
 };
 
 const post = (req, res) => {

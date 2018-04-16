@@ -2,7 +2,6 @@ const { parse } = require('url');
 const florists = require('./routes/florists');
 const notFound = require('./routes/not-found');
 const bodyParser = require('./body-parser');
-const { createReadStream } = require('fs');
 
 const routes = {
     __proto__: null,
@@ -10,10 +9,6 @@ const routes = {
 };
 
 module.exports = (req, res) => {
-    if(req.url === '/' && req.method === 'GET') {
-        return createReadStream(`${__dirname}/index.html`)
-            .pipe(res);
-    }
 
     const parsedUrl = parse(req.url, true);
     req.query = parsedUrl.query;
