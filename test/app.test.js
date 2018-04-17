@@ -10,7 +10,10 @@ const { assert } = chai;
 describe('Florists API', () => {
 
     before(() => {
-        return mongo.then(db => db.collection('florists').drop());
+        return mongo.then(db => db.collection('florists').drop()
+            .catch(err => {
+                if(err.codeName !== 'NamespaceNotFound') throw err;
+            }));
     });
 
     let florist = {
